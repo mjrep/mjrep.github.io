@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Study Quiz</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <header class="app-header">
+      <div>
+        <p class="eyebrow">Self-study quiz app</p>
+        <h1>Quizlet-style practice</h1>
+        <p class="subtext">Supports single-answer and multi-answer questions, shuffled order, and separate subject banks.</p>
+      </div>
+    </header>
+
+    <section class="panel controls-panel">
+      <div class="control-group">
+        <label for="subject-select">Subject bank</label>
+        <select id="subject-select"></select>
+      </div>
+
+      <div class="toggle-row">
+        <label class="toggle">
+          <input type="checkbox" id="shuffle-questions-toggle" checked />
+          <span>Shuffle questions</span>
+        </label>
+        <label class="toggle">
+          <input type="checkbox" id="shuffle-choices-toggle" checked />
+          <span>Shuffle answer choices</span>
+        </label>
+      </div>
+
+      <div class="button-row">
+        <button id="restart-btn" class="secondary-btn" type="button">Restart quiz</button>
+      </div>
+    </section>
+
+    <section class="panel quiz-panel" id="quiz-panel">
+      <div class="quiz-meta">
+        <div>
+          <p id="question-counter" class="counter"></p>
+          <p id="question-source-number" class="source-number"></p>
+        </div>
+        <div class="score-pill" id="live-score">Score: 0</div>
+      </div>
+
+      <h2 id="question-text" class="question-text"></h2>
+      <p id="question-type-hint" class="question-type-hint"></p>
+
+      <form id="answer-form">
+        <div id="choices-container" class="choices-container"></div>
+
+        <div class="button-row">
+          <button id="submit-btn" class="primary-btn" type="submit">Submit answer</button>
+          <button id="next-btn" class="primary-btn hidden" type="button">Next question</button>
+        </div>
+      </form>
+
+      <div id="feedback-box" class="feedback-box hidden"></div>
+    </section>
+
+    <section class="panel result-panel hidden" id="result-panel">
+      <h2>Quiz finished</h2>
+      <p id="final-score" class="final-score"></p>
+      <p id="final-summary" class="subtext"></p>
+    </section>
+  </main>
+
+  <script src="quizbanks/devnet.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

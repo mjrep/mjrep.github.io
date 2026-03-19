@@ -1,0 +1,232 @@
+:root {
+  --bg: #f4f7fb;
+  --panel: #ffffff;
+  --panel-border: #d9e2f0;
+  --text: #18202a;
+  --muted: #617085;
+  --primary: #355cde;
+  --primary-dark: #2748b5;
+  --correct-bg: #e6f7ec;
+  --correct-border: #79c494;
+  --wrong-bg: #fff0f0;
+  --wrong-border: #ec8d8d;
+  --selected: #eef3ff;
+  --selected-border: #7f9ff6;
+  --shadow: 0 12px 32px rgba(24, 32, 42, 0.08);
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.app-shell {
+  width: min(900px, calc(100% - 32px));
+  margin: 32px auto 48px;
+}
+
+.app-header {
+  margin-bottom: 20px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.78rem;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+h1, h2, p { margin-top: 0; }
+.subtext { color: var(--muted); }
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  padding: 22px;
+  margin-bottom: 18px;
+}
+
+.controls-panel {
+  display: grid;
+  gap: 16px;
+}
+
+.control-group {
+  display: grid;
+  gap: 8px;
+}
+
+label {
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+select {
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--panel-border);
+  font-size: 1rem;
+  background: #fff;
+}
+
+.toggle-row,
+.button-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.quiz-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.counter,
+.source-number,
+.question-type-hint {
+  color: var(--muted);
+}
+
+.source-number,
+.question-type-hint,
+.counter { margin-bottom: 6px; }
+
+.score-pill {
+  background: #eef3ff;
+  border: 1px solid #c9d7ff;
+  color: var(--primary-dark);
+  border-radius: 999px;
+  padding: 10px 14px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.question-text {
+  font-size: 1.4rem;
+  line-height: 1.35;
+  margin-bottom: 8px;
+}
+
+.choices-container {
+  display: grid;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.choice-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  border: 1px solid var(--panel-border);
+  border-radius: 16px;
+  padding: 14px 16px;
+  cursor: pointer;
+  transition: 0.15s ease;
+}
+
+.choice-card:hover {
+  border-color: #9cb5ff;
+  transform: translateY(-1px);
+}
+
+.choice-card.selected {
+  background: var(--selected);
+  border-color: var(--selected-border);
+}
+
+.choice-card.correct {
+  background: var(--correct-bg);
+  border-color: var(--correct-border);
+}
+
+.choice-card.wrong {
+  background: var(--wrong-bg);
+  border-color: var(--wrong-border);
+}
+
+.choice-card input {
+  margin-top: 4px;
+}
+
+.choice-letter {
+  font-weight: 700;
+  min-width: 24px;
+}
+
+.choice-text {
+  line-height: 1.4;
+}
+
+.primary-btn,
+.secondary-btn {
+  border: none;
+  border-radius: 12px;
+  padding: 12px 18px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.primary-btn {
+  background: var(--primary);
+  color: #fff;
+}
+
+.primary-btn:hover { background: var(--primary-dark); }
+.primary-btn:disabled { opacity: 0.55; cursor: not-allowed; }
+
+.secondary-btn {
+  background: #e8eefc;
+  color: var(--primary-dark);
+}
+
+.feedback-box {
+  margin-top: 18px;
+  border-radius: 14px;
+  padding: 14px 16px;
+  line-height: 1.5;
+  background: #f8faff;
+  border: 1px solid #dbe7ff;
+}
+
+.feedback-box.success {
+  background: var(--correct-bg);
+  border-color: var(--correct-border);
+}
+
+.feedback-box.error {
+  background: var(--wrong-bg);
+  border-color: var(--wrong-border);
+}
+
+.final-score {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.hidden { display: none; }
+
+@media (max-width: 640px) {
+  .app-shell { width: min(100% - 20px, 900px); margin-top: 20px; }
+  .panel { padding: 18px; border-radius: 16px; }
+  .quiz-meta { flex-direction: column; }
+  .score-pill { align-self: flex-start; }
+}
